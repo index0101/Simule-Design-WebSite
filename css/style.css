@@ -278,6 +278,10 @@ body {
     transition: all 0.3s ease;
     border: 1px solid rgba(93, 254, 198, 0.1);
     position: relative;
+
+    display: flex;              /* importante */
+    flex-direction: column;     /* empilha imagem e conteúdo */
+    justify-content: space-between; /* joga o botão para o final */
 }
 
 .service-card::before {
@@ -370,6 +374,12 @@ body {
     padding: 2rem;
     position: relative;
     z-index: 2;
+
+    flex: 1; /* ocupa espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* garante que botão fique no fim */
+    text-align: center; /* centraliza textos e botão */
 }
 
 .service-title {
@@ -387,6 +397,7 @@ body {
 
 .service-btn {
     display: inline-block;
+    margin: 0 auto;
     background: linear-gradient(135deg, #B035FD, #5DFEC6);
     color: #000000;
     padding: 0.8rem 1.5rem;
@@ -413,25 +424,32 @@ body {
     color: #5DFEC6;
     font-size: 3rem;
     margin-bottom: 1rem;
+    text-align: center; /* centraliza textos */
+    margin: 0.5rem 0;   /* reduz margens internas */
 }
 
 .promotion-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* cards menores */
+    gap: 2rem; /* espaçamento entre os cards */
+    margin: 0 auto 2rem; /* centraliza a grid e reduz margem superior */
+    max-width: 900px; /* largura máxima da grid */
 }
 
 .promotion-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     border-radius: 25px;
-    padding: 2.5rem;
-    text-align: center;
+    padding: 1.5rem 2rem; /* menos padding interno */
+    text-align: center;   /* centraliza títulos, subtítulos e botões */
     border: 1px solid rgba(93, 254, 198, 0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* botão sempre no mesmo lugar */
 }
 
 .promotion-card::before {
@@ -466,11 +484,15 @@ body {
 
 .promotion-badge {
     display: inline-block;
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;
+    padding: 0.3rem 0.8rem; 
+    border-radius: 999px;   /* deixa super arredondado (pílula) */
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    width: fit-content;
+    min-width: unset;
+    margin: 0 auto 1rem;
+    white-space: nowrap;
 }
 
 .promotion-badge.basic {
@@ -488,16 +510,22 @@ body {
     font-weight: 800;
     color: #5DFEC6;
     margin-bottom: 0.5rem;
+    text-align: center; /* centraliza textos */
+    margin: 0.5rem 0;   /* reduz margens internas */
+
 }
 
 .promotion-subtitle {
     color: #cccccc;
     margin-bottom: 2rem;
     font-size: 1.1rem;
+    text-align: center; /* centraliza textos */
+    margin: 0.5rem 0;   /* reduz margens internas */
+
 }
 
 .promotion-mockup {
-    margin: 2rem 0;
+    margin: 1.5rem 0; /* menos espaço acima/abaixo da imagem */
     display: flex;
     justify-content: center;
 }
@@ -510,24 +538,28 @@ body {
 
 .promotion-features {
     list-style: none;
-    margin: 2rem 0;
-    text-align: left;
+    padding: 0;
+    margin: 1.5rem 0; /* reduz espaço entre lista e botão */
+    text-align: center; /* centraliza os itens */
 }
 
 .promotion-features li {
-    padding: 0.5rem 0;
+    padding: 0.3rem 0; /* reduz espaçamento entre itens */
     color: #cccccc;
     font-size: 1rem;
 }
 
 .promotion-btn {
     display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 25px;
+    padding: 1rem 2rem; /* mantém altura confortável */
+    border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    margin-top: 1rem;
+    margin: 0 auto;      /* centraliza */
+    text-align: center;   /* centraliza texto dentro do botão */
+    width: auto;          /* ajusta largura automaticamente ao texto */
+    min-width: 0;         /* remove mínimo fixo */
 }
 
 .basic-btn {
@@ -549,7 +581,7 @@ body {
     text-align: center;
     color: #999999;
     font-style: italic;
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* menos espaço */
 }
 
 /* Testimonials Section */
@@ -616,10 +648,17 @@ body {
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-around; /* distribui igualmente */
+  align-items: flex-start;       /* alinha pelo topo */
+  flex-wrap: wrap;               /* quebra no mobile */
+
+  gap: 4rem 4rem; /* 4rem em cima/baixo, 4rem nos lados */
+
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin: 0 auto; /* centraliza o conjunto */
+  padding: 2rem 1rem; /* espaçamento extra em cima/baixo */
 }
 
 .footer-brand {
